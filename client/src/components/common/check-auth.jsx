@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import { Navigate, useLocation } from "react-router-dom";
+
 
 function CheckAuth({ isAuthenticated, user, children }) {
   const location = useLocation();
@@ -9,6 +11,7 @@ function CheckAuth({ isAuthenticated, user, children }) {
     if (!isAuthenticated) {
       return <Navigate to="/auth/login" />;
     } else {
+
       if (user?.role === "admin") {
         return <Navigate to="/admin/dashboard" />;
       } else {
